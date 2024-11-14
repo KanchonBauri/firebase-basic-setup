@@ -1,34 +1,17 @@
-import React from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider,  } from "firebase/auth";
-import auth from '../../Firebase/firebase';
-
+import React, { useContext } from 'react';
+import { authContext } from '../MainLayout/MainLayout';
 
 const Home = () => {
-    const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
-    const twiterProvider = new TwitterAuthProvider();
-
-
-    const handleGoogleLogin = () =>{
-        signInWithPopup(auth, googleProvider )
-        .then(result => console.log(result))
-    }
-
-    const handleGithubLogin = () =>{
-        signInWithPopup(auth, githubProvider )
-        .then(result => console.log(result))
-    }
-
-    const handleTwiterLogin = () =>{
-        signInWithPopup(auth, twiterProvider)
-        .then(result => console.log(result))
-    }
+    const contextValue = useContext(authContext);
+    // console.log(contextValue);
+    const { handleGoogleLogin, handleGithubLogin, handleTwiterLogin, handleLogout } = contextValue;
 
     return (
         <div>
-           <button onClick={handleGoogleLogin} className='btn mx-5'>Gpoogle Login</button>
+            <button onClick={handleGoogleLogin} className='btn mx-5'>Gpoogle Login</button>
            <button onClick={handleGithubLogin} className='btn mx-5'>Github Login</button>
-           <button onClick={handleTwiterLogin} className='btn'>Github Login</button>
+           <button onClick={handleTwiterLogin} className='btn mx-5'>Github Login</button>
+           <button onClick={handleLogout} className='btn mx-5'>logout</button>
         </div>
     );
 };

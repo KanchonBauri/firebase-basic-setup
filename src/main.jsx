@@ -8,6 +8,9 @@ import {
 import MainLayout from './Comronents/MainLayout/MainLayout';
 import Home from './Comronents/Home/Home';
 import Login from './Comronents/Login/Login';
+import Signup from './Comronents/SignUp/Signup';
+import SignIn from './Comronents/SignIn/SignIn';
+import Profile from './Comronents/Profile/Profile';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/signup',
+        element: <Signup></Signup>
+      },
+      {
+        path: '/signin',
+        element: <SignIn></SignIn>
+      },
+      {
+        path: '/profile',
+        element: <Profile></Profile>
       }
     ]
   },
